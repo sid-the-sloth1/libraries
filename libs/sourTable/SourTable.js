@@ -230,7 +230,9 @@ class SourTable {
 
   // Private methods
   #getHeader() {
-    const header = this.#table.querySelector("tr");
+    let header = this.#table.querySelector("thead");
+    if (header) return header;
+    header = this.#table.querySelector("tr");
     if (!header) throw new Error("No header row found.");
     return header;
   }
